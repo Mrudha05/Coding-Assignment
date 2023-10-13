@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Survey Form</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+        }
+        .form-container {
+            width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="date"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group select {
+            width: 90%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .checkbox-group input[type="checkbox"],
+        .checkbox-group label {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        .form-group .checkbox-group {
+            margin-top: 10px;
+        }
+        .form-group button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+        .form-group button[type="reset"] {
+            background-color: #f44336;
+        }
+    </style>
+</head>
+<body>
+    <h1><center>Survey Form</center></h1>
+    <div class="form-container">
+        
+        <form id="surveyForm">
+            <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" placeholder="Enter your first name" required>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" placeholder="Enter your last name" required>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" required>
+            </div>
+            <div class="form-group">
+                <label for="country">Country:</label>
+                <select id="country" required>
+                    <option value="">Select Country</option>
+                    <option value="USA">India</option>
+                    <option value="Canada">US</option>
+                    <option value="UK">Australia</option>
+                    <!-- Add more countries as needed -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Gender:</label>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="male"> <label for="male">Male</label>
+                    <input type="checkbox" id="female"> <label for="female">Female</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="profession">Profession:</label>
+                <input type="text" id="profession" placeholder="Enter your profession" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="mobile">Mobile No.:</label>
+                <input type="tel" id="mobile" placeholder="Enter your mobile number" required>
+            </div>
+            <div class="form-group">
+                <button type="button" onclick="validateForm()">Submit</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            // Same validation logic as before
+            var firstName = document.getElementById('firstName').value;
+            var lastName = document.getElementById('lastName').value;
+            var dob = document.getElementById('dob').value;
+            var country = document.getElementById('country').value;
+            var gender = document.getElementById('male').checked ? 'Male' : 'Female';
+            var profession = document.getElementById('profession').value;
+            var email = document.getElementById('email').value;
+            var mobile = document.getElementById('mobile').value;
+
+            var popupMessage = `First Name: ${firstName}\n`;
+            popupMessage += `Last Name: ${lastName}\n`;
+            popupMessage += `Date of Birth: ${dob}\n`;
+            popupMessage += `Country: ${country}\n`;
+            popupMessage += `Gender: ${gender}\n`;
+            popupMessage += `Profession: ${profession}\n`;
+            popupMessage += `Email: ${email}\n`;
+            popupMessage += `Mobile No.: ${mobile}\n`;
+
+            var confirmation = confirm(popupMessage + '\n\nDo you want to submit the form?');
+
+            if (confirmation) {
+                document.getElementById('surveyForm').reset();
+            }
+        }
+    </script>
+</body>
+</html>
