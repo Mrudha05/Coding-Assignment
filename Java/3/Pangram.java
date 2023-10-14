@@ -15,26 +15,26 @@ public class Pangram {
     }
 
     public static boolean checkPangram(String sentence) {
-    // Convert the sentence to lowercase to ignore case
+    // Convert to lowercase 
     String lowercaseSentence = sentence.toLowerCase();
 
     // Array to store the occurrence of each letter (a-z)
     boolean[] alphabet = new boolean[26];
 
-    // Iterate through the sentence and mark corresponding letters in the array
+    
     for (char c : lowercaseSentence.toCharArray()) {
         if (c >= 'a' && c <= 'z') {
             alphabet[c - 'a'] = true;
         }
     }
 
-    // Check if all letters are present in the array
+    // Check 
     for (boolean letterPresent : alphabet) {
         if (!letterPresent) {
             return false; // If any letter is missing, it's not a pangram
         }
     }
 
-    return true; // All letters are present, it's a pangram
+    return true; // All letters, is a pangram
 }
 }

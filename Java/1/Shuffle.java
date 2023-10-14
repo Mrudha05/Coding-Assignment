@@ -3,13 +3,12 @@ import java.util.Random;
 
 public class Shuffle {
     public static void main(String[] args) {
-        // Create the original array
         int[] originalArray = {1, 2, 3, 4, 5, 6, 7};
 
-        // Shuffle the array
+        // Shuffle
         shuffleArray(originalArray);
 
-        // Print the shuffled array
+        // Print 
         System.out.println("Shuffled Array: " + Arrays.toString(originalArray));
     }
 
